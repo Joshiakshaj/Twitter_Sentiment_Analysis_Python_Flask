@@ -1,0 +1,105 @@
+This is a web app made using Python and Flask Framework. It has a registration system and a dashboard. Users can enter keywords to retrieve live Twitter text based on the keyword, and analyze it for customer feelings and sentiments. This data can be visualized in a graph. This project, in particular, mines data using a popular “Tweepy” API. Tweepy API connects to Twitter in real-time and gathers metadata along with the text from the Twitter platform.  
+
+Purpose:
+To help companies study the customer sentiment around a particular product.
+To help system users analyze a huge amount of data, quickly and efficiently.
+To segregate customer sentiment on a scale of -1 to 1, where -1 represents a strong negative sentimentality towards the keyword(s), and 1 represents a strongly positive reaction.
+To visualize the collected data clearly and effectively.
+
+Tools and Technologies Used in the Project:
+HARDWARE:
+
+4GB RAM
+Windows 10
+Google Chrome web browser for deployment
+Internet connection to connect to Twitter
+This project design is software-based, so the hardware design requirements include a 64-bit well-functioning PC with at least 4 Gigabits of RAM.  
+
+SOFTWARE:
+
+Python- Python is an interpreted, high level, and general-purpose programming language. Python promotes code manageability and readability, making it one of the top applications for working with Machine Learning.
+Flask web framework(works with python)- Flask is a web framework. This means flask provides us with tools, libraries, and technologies that will allow me to build a web application and web pages. Flask is a back-end micro-framework, and it makes data handling clean and simple.
+Tweepy(Twitter API for Python)- Tweepy is an open-source Python package that gives you a very convenient way to access the Twitter API with Python. Tweepy includes a set of classes and methods that represent Twitter’s models and API endpoints, and it transparently handles various implementation details, such as Data encoding and decoding.
+Apache SQL on Xampp server for windows- SQL server runs on phpMyAdmin inside the localhost. This database is used for storing, verifying, and retrieving a user’s login credentials.
+Bootstrap- The UI is enhanced with the help of Bootstrap, which helps to build modern, intuitive, and responsive web pages.
+JQuery- JQuery is used for sending and retrieving data back and forth from the Tweepy API, and displaying the results on the webpage.
+HTML/CSS- HTML and CSS is the base for the website front-end design.
+Required Skillset to Build the Project:
+Machine Learning- Moderate
+Programming skills
+Python- Advanced.
+HTML/CSS/JQUERY/BOOTSTRAP- Basic to moderate.
+SQL/DBMS- Basic to moderate
+Debugging/Deployment – Moderate
+Ability to work with API’s.
+Implement the Project:
+Follow the below steps to implement the project:
+
+Step 1: Download and Install Xampp Server on your system.
+
+Step 2: Start Apache Xampp and MySQL. Create a database in MySQL with 3 columns (username, email id, and password).
+
+Step 3: Download and Install PyCharm. Click on Create-> New Project. Give a name to your project. 
+
+Step 4:Type the following code in Pycharm. For detailed project files and hierarchy, refer to this GitHub repository. 
+
+The main.py file:
+In this file,  we first initialize our project. We establish a connection to our SQL database using the ‘conn’ object. 
+
+We set a user cookie variable, which checks if the user has logged in, before redirecting him/her to the home page. This script also handles the user input on the login/register pages. 
+
+
+The sentiments.py
+This is the second python file in our project, which was registered as a blueprint in our “main.py” file.
+
+This code takes the user input from the HTML page, which specifies which keyword is to be searched, and the number of tweets to be looked at. It then connects to the Tweepy API, which retrieves the tweet text. This text is cleaned and then categorized into different sentiments( -1 is an angry/sad emotion, 1 is a happy emotion). 
+
+Based on this, a pie chart is created and saved as an image. This image is later called in other HTML pages.
+
+
+The SentimentAnalyzer.py template. (The template that renders results for the main logic of the program)
+This template asks the users to enter a topic/word of their interest, and the number of tweets based on that topic that users would like to analyze. 
+
+Please note that Twitter has daily and hourly rate limits, which cannot be exceeded. 
+
+This form passes the data to second.py file, which calculates the output and sets “jinja” variables. (Jinja allows passing values between python and HTML).
+
+These variables then display the output to users. 
+
+
+
+The Login template:
+HTML code for the page that displays the login form. The user enters a username and password, which has validations. Once the data is validated, these variables are passed to the main.py file, which connects to the SQL database to check if the login is valid.  
+
+The Registration template:
+HTML code for the page that displays the registration form. The user enters a username and password, which has validations. Additionally, the user’s name becomes a value for the cookie that is set in the main.py file. 
+
+Once the data is validated, these variables are passed to the main.py file, which connects to the SQL database to check if the login is valid.  
+
+
+The HomePage Template:
+HTML home page. The page has 2 main parts 
+
+Navigation bar- The navigation bar has links for all other pages, it retrieves the user’s name from the cookie and displays “Welcome Sam” [users name]. This bar also has a logout button.
+Bootstrap carousel- This carousel is a customized version of the basic carousel which can be found at https://getbootstrap.com/docs/4.0/components/carousel/
+
+The PieChart Generation template: 
+This HTML template simply displays an image file saved in our project. This image file is generated in the second.py file code. The image is a Pie Chart, which visually represents the results of sentiment analysis. The image is overwritten every time the code is run. 
+
+
+Detailed project Implementation guidelines:
+The user creates a new account with all the required validations by clicking “Create account” Registration page validations. URL Rewriting is prevented through the use of cookies.
+After successful registration/login, the user is directed to the home page.
+Home Page has a bootstrap carousel Slider. At the top left, the cookie is retrieved and displays the logged-in user’s name. This cookie also protects against website hijacking (No user can directly access the /home URL if they are not properly logged in).
+The Home Page welcomes the user with their registered name, using cookies,
+The user can navigate using the navigation bar at the top. Click “get started” to go to the main module screen.
+The user enters a keyword, and the number of tweets to analyze. Both fields need to be filled. The users click analyze. The system connects to Tweepy, fetches the latest tweets, analyzes them, and displays results in the respective fields.
+Users can click on the generate Visualization button at the bottom of the report. This generates a Pie Chart based on the report.
+When users click, ‘how this project works”, they are redirected to tweepy documentation.
+Users can click “logout” to log out and end their session.
+
+                                                                                                                                        
+Project Application in Real-Life:
+Twitter boasts 330 million monthly active users, which allows businesses to reach a broad audience and connect with customers without intermediaries. On the downside, there’s so much information that it’s hard for brands to quickly detect negative social mentions that could harm their business.
+
+That’s why sentiment analysis, which involves monitoring emotions in conversations on social media platforms, has become a key strategy in social media marketing. Listening to how customers feel on Twitter allows companies to understand their audience, keep on top of what’s being said about their brand, and their competitors, and discover new trends in the industry. Companies can take action quickly. The idea can even be extended to ordinary users, where local keywords and hashtags can be used to analyze sentiments from the text on Twitter.
